@@ -1,1 +1,2 @@
 This is file named file2.txt
+added 2nd line to this file
