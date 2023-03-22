@@ -1,1 +1,2 @@
 created directly on github.com
+line 2 added on remote to test the git pull merge handling that i might need to do 
