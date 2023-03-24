@@ -1,2 +1,3 @@
 file3.txt contents
 added line 2 in file3
+line 3 added
