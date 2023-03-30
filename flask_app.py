@@ -10,11 +10,11 @@ color = "red"
 @app.route('/')
 # ‘/’ URL is bound with hello_world() function.
 def main():
-  print(color, 'Hello World')
-	return render_template('hello.html', color=color)
+  print(color, "Hello World")
+	return render_template("hello.html", color=color)
 
 # main
 if __name__ == '__main__':
 	# run() method of Flask class runs the application on the local development server.
-	app.run()
+	app.run(host="0.0.0.0", port="8080")
 
