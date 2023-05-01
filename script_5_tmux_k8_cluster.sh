@@ -27,7 +27,7 @@ tmux new-window -P -t ${SESSION_NAME}:2 -n ${RHOST_1%%.*} "ssh ${USER_ID}@${RHOS
 tmux new-window -P -t ${SESSION_NAME}:3 -n ${RHOST_2%%.*} "ssh ${USER_ID}@${RHOST_2}"
 tmux new-window -P -t ${SESSION_NAME}:4 -n ${RHOST_3%%.*} "ssh ${USER_ID}@${RHOST_3}"
 tmux new-window -P -t ${SESSION_NAME}:5 -n ${RHOST_4%%.*} "ssh ${USER_ID}@${RHOST_4}"
-tmux new-window -P -t ${SESSION_NAME}:6 -n ${MULT_NODES%%.*} "bash"   # this last window will be for the multiple panes
+tmux new-window -P -t ${SESSION_NAME}:6 -n MULT_NODES "bash"   # this last window will be for the multiple panes
 
 #--------------------------------------------------------------------------------
 
