@@ -36,23 +36,23 @@ tmux new-window -P -t ${SESSION_NAME}:7 -n MULT_NODES "bash"   # this last windo
 
 # window 7 created above has pane 1 on creation
 tmux send-keys "echo this is window-6 pane-1" Enter
-tmux select-pane -T "==${HOSTNAME}==" \; select-layout tiled
+tmux select-pane -T "${HOSTNAME}" \; select-layout tiled
 
 # create pane 2
 tmux split-window "ssh $RHOST_1"
-tmux select-pane -T "==${RHOST_1}==" \; select-layout tiled
+tmux select-pane -T "${RHOST_1}" \; select-layout tiled
 
 # create pane 3
 tmux split-window "ssh $RHOST_2"
-tmux select-pane -T "==${RHOST_2}==" \; select-layout tiled
+tmux select-pane -T "${RHOST_2}" \; select-layout tiled
 
 # create pane 4
 tmux split-window "ssh $RHOST_3"
-tmux select-pane -T "==${RHOST_3}==" \; select-layout tiled
+tmux select-pane -T "${RHOST_3}" \; select-layout tiled
 
 # create pane 5
 tmux split-window "ssh $RHOST_4"
-tmux select-pane -T "==${RHOST_4}==" \; select-layout tiled
+tmux select-pane -T "${RHOST_4}" \; select-layout tiled
 
 #tmux select-layout main-vertical
 
