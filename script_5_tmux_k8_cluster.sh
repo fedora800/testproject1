@@ -14,7 +14,7 @@ USER_ID="cloud_user"
 #172.31.25.15    acg-k8-worker3
 
 LHOST=$HOSTNAME
-RHOST_1="acg-k8-controlp2"
+RHOST_1="acg-k8-control1"
 RHOST_2="acg-k8-worker1"
 RHOST_3="acg-k8-worker2"
 RHOST_4="acg-k8-worker3"
