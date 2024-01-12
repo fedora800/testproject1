@@ -1,13 +1,16 @@
 #!/bin/bash
-# open multiple tmux windows all on the localhost
+# open multiple tmux windows, some with split panes, all on the localhost. this is the main tmux reference file.
   
 SESSION_NAME="work-mult-wins"
 
 LHOST=$HOSTNAME
 
-# create a detached session, give it a session name and open up a localhost bash shell as window 1
-# a detached session means it will be created, but it will return us to the bash prompt, and we can attach to it when required
-tmux new-session -P -d -s ${SESSION_NAME} -n ${LHOST}_A "bash"
+# create a detached session and give it a session name 
+# detached session meaning it will be created, but it will return us to the bash prompt, and we can re-attach back to it later when required
+tmux new-session -P -d -s ${SESSION_NAME}
+
+# create window 1 and run a localhost bash shell in it with window name as main
+tmux new-window -P -t ${SESSION_NAME}:1 -n main "bash"
 # make tmux run the profile in this window 1 shell
 tmux send-keys "source ~/git-projects/dotfiles/.bash_profile.mine" Enter
 
