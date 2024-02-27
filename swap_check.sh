@@ -10,7 +10,7 @@ do
   #echo $PS_KSWAP_CPU_ENTRY
   CURR_PCT=$(echo $PS_KSWAP_CPU_ENTRY | awk -F'.' '{print $1}')
   echo "curr=$CURR_PCT  prev=$PREV_PCT"
-  if [[ $CURR_PCT -gt $PREV_PCT && $PREV_PCT -gt 30 && $CURR_PCT -gt 30 ]]
+  if [[ $CURR_PCT -gt $PREV_PCT && $PREV_PCT -gt 20 && $CURR_PCT -gt 20 ]]
   then
     echo "***** killing vscode ****"
     ps aux | grep .vscode-server | awk '{print $2}' | xargs kill
