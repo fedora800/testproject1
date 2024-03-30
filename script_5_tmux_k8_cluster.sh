@@ -57,3 +57,8 @@ tmux select-pane -T "${RHOST_3}" \; select-layout tiled
 # now attach to this session to use it
 tmux attach-session -t ${SESSION_NAME}
 
+
+# tmux new-window -a -d -t K8-CLUSTER -n NEW-control1 ; tmux send-keys -t K8-CLUSTER:NEW-WINDOW "ssh cloud_user@acg-control1" C-m ; tmux send-keys -t K8-CLUSTER:NEW-control1 "cd /etc/kubernetes;ls -ltr k*conf; hostnamectl" C-m
+
+
+
