@@ -4,7 +4,7 @@
   
 SESSION_NAME="K8-CLUSTER"
 USER_ID="cloud_user"
-
+alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 # add to /etc/hosts 
 # and then scp public key using - cat /etc/hosts | grep acg | grep -v controlp1 | awk '{print $2}' | xargs -t -I {} sshpass -p mypassword ssh-copy-id myuserid@{}
 #172.31.118.17   acg-control1

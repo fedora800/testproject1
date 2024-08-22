@@ -2,6 +2,7 @@
   
 SESSION_NAME="OCI"
 USER_ID="ubuntu"
+alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 
 LHOST=$HOSTNAME
 RHOST_1="oci-k8-control1"

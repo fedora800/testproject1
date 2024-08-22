@@ -4,6 +4,8 @@
 SESSION_NAME="AWS-EC2"
 USER_ID="ubuntu"
 SSH_PEM_KEY_FILE="~/ec2-keypair.pem"
+alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
+
 
 # will need to update the below RHOSTS with the public IP addresses each time
 LHOST=$HOSTNAME

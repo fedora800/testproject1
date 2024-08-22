@@ -3,6 +3,7 @@
   
 SESSION_NAME="TWO_HOSTS"
 USER_ID="cloud_user"
+alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 
 LHOST=$HOSTNAME
 RHOST_1="acg-k8-controlp2"

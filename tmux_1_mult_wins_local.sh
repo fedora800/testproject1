@@ -13,6 +13,7 @@ EOF
 
 SESSION_NAME="work-local"
 LHOST=$HOSTNAME
+alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 
 tmux new-session -P -d -s ${SESSION_NAME}
 cat $TMUX_LAYOUT_FILE | while read W_NO W_NM

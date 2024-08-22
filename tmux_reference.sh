@@ -2,6 +2,7 @@
 # open multiple tmux windows, some with split panes, all on the localhost. this is the main tmux reference file.
   
 SESSION_NAME="work-mult-wins"
+alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 
 LHOST=$HOSTNAME
 
