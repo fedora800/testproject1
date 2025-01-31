@@ -16,10 +16,10 @@ LHOST=$HOSTNAME
 alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 
 tmux new-session -P -d -s ${SESSION_NAME}
-cat $TMUX_LAYOUT_FILE | while read W_NO W_NM
+cat $TMUX_LAYOUT_FILE | while read W_NO W_NAME
 do
-  echo "-----------$W_NO------$W_NM-----"
-  tmux new-window -P -t ${SESSION_NAME}:${W_NO} -n ${W_NM} "bash"
+  echo "-----------$W_NO------$W_NAME-----"
+  tmux new-window -P -t ${SESSION_NAME}:${W_NO} -n ${W_NAME} "bash"
   tmux send-keys "source ~/git-projects/dotfiles/.bash_profile.mine" Enter
 done
 tmux select-window -t ${SESSION_NAME}:1
