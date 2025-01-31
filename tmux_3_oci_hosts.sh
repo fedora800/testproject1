@@ -1,12 +1,12 @@
 #!/bin/bash
+# tmux_3_oci_hosts.sh
   
-SESSION_NAME="OCI"
+SESSION_NAME="OCI-NODES"
 USER_ID="ubuntu"
-alias tmux="tmux -f ~/git-projects/dotfiles/.tmux.conf"
 
 LHOST=$HOSTNAME
-RHOST_1="oci-k8-control1"
-RHOST_2="oci-k8-worker1"
+RHOST_1="oci-devops1"
+RHOST_2="oci-worker3"
 
 # create a detached session, give it a session name and open up a localhost bash shell as window 1
 # a detached session means it will be created, but it will return us to the bash prompt, and we can attach to it when required
@@ -22,8 +22,9 @@ tmux new-window -P -t ${SESSION_NAME}:5 -n MULT_NODES "bash"   # this last windo
 
 #--------------------------------------------------------------------------------
 
-# window 4 created above has pane 1 on creation
-tmux send-keys "echo this is window-6 pane-1" Enter
+
+# window 5 created above has pane 1 on creation
+tmux send-keys "echo this is window-5 pane-1" Enter
 tmux select-pane -T "${LHOST}" \; select-layout tiled
 
 # create pane 2
