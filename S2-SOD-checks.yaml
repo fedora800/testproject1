@@ -1,0 +1,15 @@
+session_name: S1-SOD-checks
+windows:
+  - window_name: ld4prini01
+    panes:
+      - ssh -t ld4prini01 'hostname; bash --rcfile ~/.bashrc_light'
+  - window_name: ld4aseprini01
+    panes:
+      - ssh -t ld4aseprini01 'hostname; bash --rcfile ~/.bashrc_light'
+  - window_name: ld4prftp01
+    panes:
+      #- ssh -t ld4prftp01 'hostname; bash --rcfile ~/.bashrc_light; cd /srv/ftp/pub/refdata; ls -ltr *csv | tail -2'
+      - shell_command:
+        - ssh -t ld4prftp01
+        - cd /srv/ftp/pub/refdata
+        - ls -ltr *csv | tail -6

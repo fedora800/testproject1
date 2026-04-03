@@ -1,0 +1,25 @@
+session_name: S1-git-repos
+shell_command_before:
+  - source ~/git-projects/dotfiles/.bash_profile.mine
+
+windows:
+  - window_name: bash
+    layout: tiled
+    shell_command_before:
+      - ls -ltrFAh
+  - window_name: ops_mtfct
+#    options:
+#      window-status-style: "bg=blue,fg=black"
+#      window-style: "bg=colour17"    # dark blue
+    panes:
+    - shell_command:
+#      - tmux set-window-option window-style 'fg=white,bg=colour17'
+      - cd ~/git-projects-work/ops_mtfct
+  - window_name: ops_mtfpr
+#    options:
+#      window-status-style: "bg=green,fg=black"
+#      window-style: "bg=colour22"    # dark green
+    panes:
+    - shell_command:
+#      - tmux set-window-option window-style 'fg=white,bg=colour22'
+      - cd ~/git-projects-work/ops_mtfpr
