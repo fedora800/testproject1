@@ -32,12 +32,10 @@ tmux new-window -P -t ${SESSION_NAME}:5 -n MULT_NODES "bash"   # this last windo
 # window 5 created above has pane 1 on creation
 tmux send-keys "echo this is window-5 pane-1" Enter
 tmux select-pane -T "${LHOST}" \; select-layout tiled
-
-# create pane 2
+# create pane 2 and add it to the window
 tmux split-window "ssh ${USER_ID}@$RHOST_1"
 tmux select-pane -T "${RHOST_1}" \; select-layout tiled
-
-# create pane 3
+# create pane 3 and add it to the window
 tmux split-window "ssh ${USER_ID}@$RHOST_2"
 tmux select-pane -T "${RHOST_2}" \; select-layout tiled
 

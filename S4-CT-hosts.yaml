@@ -1,0 +1,11 @@
+session_name: S4-CT-hosts
+windows:
+  - window_name: bash
+    panes:
+      - source ~/git-projects/dotfiles/.bash_profile.mine
+  - window_name: ld4ctiniuk01
+    panes:
+      - ssh -t ld4ctiniuk01 'hostname; bash --rcfile ~/.bashrc_light'
+  - window_name: ld4ctinieu01
+    panes:
+      - ssh -t ld4ctinieu01 'hostname; bash --rcfile ~/.bashrc_light'

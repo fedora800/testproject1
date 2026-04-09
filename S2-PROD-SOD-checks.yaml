@@ -1,0 +1,36 @@
+session_name: S1-SOD-checks
+windows:
+  - window_name: ld4prini01
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prinieu01"
+          - exec ssh -t ld4prinieu01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prinieu02"
+          - exec ssh -t ld4prinieu02 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prini01"
+          - exec ssh -t ld4prini01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prini02"
+          - exec ssh -t ld4prini02 'hostname; bash --rcfile ~/.bashrc_light'
+  - window_name: ld4aseprini01
+    panes:
+      - ssh -t ld4aseprini01 'hostname; bash --rcfile ~/.bashrc_light'
+  - window_name: ld4prarc01
+    panes:
+      - ssh -t ld4prarc01 'hostname; bash --rcfile ~/.bashrc_light'
+  - window_name: ld4prftp01
+    panes:
+      #- ssh -t ld4prftp01 'hostname; bash --rcfile ~/.bashrc_light; cd /srv/ftp/pub/refdata; ls -ltr *csv | tail -2'
+      - shell_command:
+        - ssh -t ld4prftp01
+        - cd /srv/ftp/pub/refdata
+        - ls -ltr *csv | tail -6
+
+
