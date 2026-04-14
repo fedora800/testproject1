@@ -21,7 +21,7 @@ ld4testini01.aquis.eu          # env=TEST , system=MTF  , site=PRIM, desc=ini se
 
 ld4prlog01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=log server, inst=01, f=   , my_a=     , jb_a=  , note1=
 ld4prmdcap01.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=IDC market data feed in, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=md1  , note1=
-ld4prmdcap02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=IDC market data feed in, inst=02, f=aquis_server_alias.sh   , my_a=     , jb_a=md2  , note1=
+ld4prmdcap02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=IDC market data feed in, inst=02, f=aquis_server_alias.sh   , my_a=     , jb_a=md2  , note1=CANNOT SSH
 
 
 # CT

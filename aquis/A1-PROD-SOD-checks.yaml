@@ -32,5 +32,18 @@ windows:
         - ssh -t ld4prftp01
         - cd /srv/ftp/pub/refdata
         - ls -ltr *csv | tail -6
-
-
+  - window_name: market-data-pubs
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prmdcap01"
+          - exec ssh -t ld4prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prmdcap02"
+          - exec ssh -t ld4prmdcap02 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ln1prmdcap01"
+          - exec ssh -t ln1prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
