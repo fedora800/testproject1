@@ -1,11 +1,35 @@
-session_name: S4-CT-hosts
+session_name: A3-CT-hosts
+
+environment:
+  TP_CMD_FIGLET: "/home/sshinde/bin/figlet -d /home/sshinde/share/figlet -f standard"
+
 windows:
   - window_name: bash
     panes:
       - source ~/git-projects/dotfiles/.bash_profile.mine
+
   - window_name: ld4ctiniuk01
     panes:
-      - ssh -t ld4ctiniuk01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - export TP_RHOST=ld4ctiniuk01
+          - $TP_CMD_FIGLET $TP_RHOST
+          - sleep 1
+          - ssh -t $TP_RHOST 'hostname; bash --rcfile ~/.bashrc_light'
+
   - window_name: ld4ctinieu01
     panes:
-      - ssh -t ld4ctinieu01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - export TP_RHOST=ld4ctinieu01
+          - $TP_CMD_FIGLET $TP_RHOST
+          - sleep 1
+          - ssh -t $TP_RHOST 'hostname; bash --rcfile ~/.bashrc_light'
+
+  - window_name: bash-2
+    panes:
+      - shell_command:
+          - sleep 1
+          - tmux set-window-option -t A3-CT-hosts:2 window-style 'fg=white,bg=colour52'
+          - tmux set-window-option -t A3-CT-hosts:2 window-active-style 'fg=white,bg=colour52'
+          - tmux set-window-option -t A3-CT-hosts:3 window-style 'fg=white,bg=colour18'
+          - tmux set-window-option -t A3-CT-hosts:3 window-active-style 'fg=white,bg=colour18'
+
