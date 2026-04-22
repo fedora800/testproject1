@@ -24,6 +24,14 @@ windows:
           - sleep 1
           - ssh -t $TP_RHOST 'hostname; bash --rcfile ~/.bashrc_light'
 
+  - window_name: ld4ctcap01
+    panes:
+      - shell_command:
+          - export TP_RHOST=ld4ctcap01
+          - $TP_CMD_FIGLET $TP_RHOST
+          - sleep 1
+          - ssh -t $TP_RHOST 'hostname; bash --rcfile ~/.bashrc_light'
+
   - window_name: bash-2
     panes:
       - shell_command:

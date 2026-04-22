@@ -1,0 +1,27 @@
+session_name: A5-PROD-arch-hosts
+windows:
+  - window_name: UK-arch-hosts
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prarcuk01"
+          - exec ssh -t ld4prarcuk01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ln1prarcuk01"
+          - exec ssh -t ln1prarcuk01 'hostname; bash --rcfile ~/.bashrc_light'
+
+  - window_name: EU-arch-hosts
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prarceu01"
+          - exec ssh -t ld4prarceu01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ln1prarceu01"
+          - exec ssh -t ln1prarceu01 'hostname; bash --rcfile ~/.bashrc_light'
+
+

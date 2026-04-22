@@ -1,13 +1,20 @@
 archive.mtf-uk.aws            # env=PROD, system=MTF  , site=PRIM, desc=?? , f=   , my_a=     , jb_a=  , note1=
 
-ld1prarc01.aquis.eu           # env=PROD, system=MTF  , site=DR, desc=archive server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=arcln , note1=
 ln1prmdcap01.aquis.eu         # env=PROD, system=MTF  , site=DR, desc=IDC market data feed in, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=mdln  , note1=
 
 ld4aseprini01.aquis.eu        # env=PROD, system=AQSE  , site=PRIM, desc=ini server for AQSE, inst=01, f=aqse_server_alias.sh  , my_a=     , jb_a=aseini1 , note1=
 ld4aseprini02.aquis.eu        # env=PROD, system=AQSE  , site=PRIM, desc=ini server for AQSE, inst=02, f=aqse_server_alias.sh  , my_a=     , jb_a=aseini2 , note1=
-ld4prarc01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=archive server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=pr-xx-arcx-01     , jb_a=arcld , note1=
 ld4prftp01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=ftp server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=ftppr  , note1=
 
+# -----
+
+#ARC
+ln1prarc01.aquis.eu           # env=PROD, system=MTF  , site=DR, desc=archive server for UK, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=arcln , note1=old maybe ?
+ld4prarc01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=archive server for UK, inst=01, f=aquis_server_alias.sh  , my_a=pr-uk-arcx-01-old     , jb_a=arcld , note1=OLD HOST NEW ONE IS ld4prarcuk01
+ld4prarcuk01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=archive server for UK, inst=01, f=N/A  , my_a=pr-uk-arcx-01     , jb_a=N/A , note1=not in jb scripts as new hosts
+ln1prarcuk01.aquis.eu           # env=PROD, system=MTF  , site=DR, desc=archive server for UK, inst=01, f=N/A  , my_a=pr-uk-arcx-01     , jb_a=N/A , note1=
+ld4prarceu01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=archive server for EU, inst=01, f=N/A  , my_a=pr-eu-arcx-01-dr     , jb_a=N/A , note1=
+ln1prarceu01.aquis.eu           # env=PROD, system=MTF  , site=DR, desc=archive server for EU, inst=01, f=N/A  , my_a=pr-eu-arcx-01-dr     , jb_a=N/A , note1=
 
 # INI 
 ld4prinieu01.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=ini server for EU , inst=01, f=aquis_server_alias.sh  , my_a=pr-eu-inix-01     , jb_a=inieu1  , note1=

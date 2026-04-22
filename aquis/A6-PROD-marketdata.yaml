@@ -1,0 +1,113 @@
+session_name: A6-PROD-marketdata
+
+shell_command_before:
+  - export TP_TODAY=$(date +%Y-%m-%d)
+  - export TP_LOG_DIR="/srv/pr_ramdisk/"$TP_TODAY
+  
+  - export TP_HOST_MD_PR_01="ld4prmdcap01"
+  - export TP_HOST_MD_DR_01="ln1prmdcap01"
+
+windows:
+  # --- A feed ---
+  - window_name: aquis-spit-out-A-stream-LD4-01
+    layout: tiled
+    panes:
+      # --- _UK ---
+      # alias prLSEAtail
+      - shell_command:
+          - export TP_MDFILE="A_LSE_UK_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_PR_01 "clear; cd /srv/pr/$TP_TODAY; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+          
+      # alias prENXAtail
+      - shell_command:
+          - export TP_MDFILE="A_ENXT_UK_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_PR_01 "clear; cd /srv/pr/$TP_TODAY; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+
+      # alias prXETAtail
+      - shell_command:
+          - export TP_MDFILE="A_XET_UK_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_PR_01 "clear; cd /srv/pr/$TP_TODAY; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+
+      # --- _EU ---
+      - shell_command:
+          - export TP_MDFILE="A_ENXT_EU_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_PR_01 "clear; cd /srv/pr/$TP_TODAY; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+
+      - shell_command:
+          - export TP_MDFILE="A_XET_EU_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_PR_01 "clear; cd /srv/pr/$TP_TODAY; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_HOST_MD_PR_01"
+          - exec ssh -t $TP_HOST_MD_PR_01 'hostname; bash --rcfile ~/.bashrc_light'
+
+
+
+
+
+
+
+  # --- B feed ---
+  # B feed logging process is also running on ld4prmdcap01
+#  - window_name: mktdata-aquis-spit-out-B-stream-LD4-ld4prmdcap01
+#    layout: tiled
+#    panes:
+#      - shell_command:
+#          - sleep 0.3
+#          - tmux select-pane -t "$TMUX_PANE" -T "$TP_HOST_MD_PR_01"
+#          - exec ssh -t $TP_HOST_MD_PR_01 'hostname; bash --rcfile ~/.bashrc_light'
+#      - shell_command:
+#          - sleep 0.3
+#          - tmux select-pane -t "$TMUX_PANE" -T "ld4prmdcap02"
+#          - exec ssh -t ld4prmdcap02 'hostname; bash --rcfile ~/.bashrc_light'
+#      - shell_command:
+#          - sleep 0.3
+#          - tmux select-pane -t "$TMUX_PANE" -T "ln1prmdcap01"
+#          - exec ssh -t ln1prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
+
+
+  # --- C feed ---
+  - window_name: aquis-spit-out-C-stream-LN1-01
+    layout: tiled
+    panes:
+      # --- _UK ---
+      # alias prLSECtail
+      - shell_command:
+          - export TP_MDFILE="C_LSE_UK_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_DR_01 "clear; cd $TP_LOG_DIR; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+          
+      # alias prENXCtail
+      - shell_command:
+          - export TP_MDFILE="C_ENXT_UK_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_DR_01 "clear; cd $TP_LOG_DIR; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+
+      # alias prXETCtail
+      - shell_command:
+          - export TP_MDFILE="C_XET_UK_1G_MMT_mdstream.log"
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_MDFILE"
+          - exec ssh -t $TP_HOST_MD_DR_01 "clear; cd $TP_LOG_DIR; tail -10 $TP_MDFILE; echo; ls -l $TP_MDFILE; date; bash"
+
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_HOST_MD_DR_01"
+          - exec ssh -t $TP_HOST_MD_DR_01 "clear; hostname; cd $TP_LOG_DIR; bash"
+
+
+#  - window_name: mktdata-aquis-spit-out-A-stream-LD4-ld4prmdcap02  todo
+#  - window_name: mktdata-aquis-spit-out-B-stream-LD4-ld4prmdcap02  todo

@@ -1,4 +1,4 @@
-session_name: S1-SOD-checks
+session_name: A1-PROD-SOD-checks
 windows:
   - window_name: ld4prini01
     layout: tiled
@@ -32,7 +32,24 @@ windows:
         - ssh -t ld4prftp01
         - cd /srv/ftp/pub/refdata
         - ls -ltr *csv | tail -6
-  - window_name: market-data-pubs
+  - window_name: mktdata-aquis-spit-out-A-stream-LD4-ld4prmdcap01
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "A_LSE_UK_1G_MMT_mdstream.log"
+          - exec ssh -t ld4prmdcap01 'clear; cd /srv/pr/$(date +%Y-%m-%d); ls -l A_LSE_UK_1G_MMT_mdstream.log; tail -10 A_LSE_UK_1G_MMT_mdstream.log'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prmdcap02"
+          - exec ssh -t ld4prmdcap02 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ln1prmdcap01"
+          - exec ssh -t ln1prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
+
+
+  - window_name: mktdata-aquis-spit-out-B-stream-LD4-ld4prmdcap01
     layout: tiled
     panes:
       - shell_command:
@@ -47,3 +64,39 @@ windows:
           - sleep 0.3
           - tmux select-pane -t "$TMUX_PANE" -T "ln1prmdcap01"
           - exec ssh -t ln1prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
+
+
+  - window_name: mktdata-aquis-spit-out-c-stream-LN1
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prmdcap01"
+          - exec ssh -t ld4prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prmdcap02"
+          - exec ssh -t ld4prmdcap02 'hostname; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ln1prmdcap01"
+          - exec ssh -t ln1prmdcap01 'hostname; bash --rcfile ~/.bashrc_light'
+
+
+
+#  - window_name: mktdata-aquis-spit-out-A-stream-LD4-ld4prmdcap02  todo
+#  - window_name: mktdata-aquis-spit-out-B-stream-LD4-ld4prmdcap02  todo
+#/home/sshinde/todo-aquis_alias.sh:103:alias prLSEAtail="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_LSE_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:104:alias prENXAtail="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_ENXT_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:105:alias prXETAtail="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_XET_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:106:alias prOTHAtail="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_OTH_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:107:alias prMACAtail="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_ENXT_UK_MaC_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:115:alias prLSEAtail2="ssh -t ld4prmdcap02 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_LSE_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:116:alias prENXAtail2="ssh -t ld4prmdcap02 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_ENXT_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:117:alias prXETAtail2="ssh -t ld4prmdcap02 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_XET_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:118:alias prOTHAtail2="ssh -t ld4prmdcap02 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_OTH_UK_1G_MMT_mdstream.log"
+#/home/sshinde/todo-aquis_alias.sh:128:alias prLSEtrade="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_LSE_UK_1G_MMT_mdstream.log |grep mdTrade"
+#/home/sshinde/todo-aquis_alias.sh:129:alias prENXtrade="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_ENXT_UK_1G_MMT_mdstream.log |grep mdTrade"
+#/home/sshinde/todo-aquis_alias.sh:130:alias prXETtrade="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_XET_UK_1G_MMT_mdstream.log |grep mdTrade"
+#/home/sshinde/todo-aquis_alias.sh:131:alias prOTHtrade="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_OTH_UK_1G_MMT_mdstream.log |grep mdTrade"
+#
