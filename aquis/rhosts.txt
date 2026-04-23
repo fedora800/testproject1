@@ -4,7 +4,7 @@ ln1prmdcap01.aquis.eu         # env=PROD, system=MTF  , site=DR, desc=IDC market
 
 ld4aseprini01.aquis.eu        # env=PROD, system=AQSE  , site=PRIM, desc=ini server for AQSE, inst=01, f=aqse_server_alias.sh  , my_a=     , jb_a=aseini1 , note1=
 ld4aseprini02.aquis.eu        # env=PROD, system=AQSE  , site=PRIM, desc=ini server for AQSE, inst=02, f=aqse_server_alias.sh  , my_a=     , jb_a=aseini2 , note1=
-ld4prftp01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=ftp server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=ftppr  , note1=
+
 
 # -----
 
@@ -22,18 +22,37 @@ ld4prinieu02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=ini serv
 ld4priniuk01.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=ini server for UK , inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=ini1  , note1=this is also aliased as ld4prini01
 ld4priniuk02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=ini server for UK , inst=02, f=aquis_server_alias.sh  , my_a=     , jb_a=ini2  , note1=this is also aliased as ld4prini02 
 
-ld4ctinieu01.aquis.eu          # env=CT , system=MTF , site=PRIM, desc=ini server for EU, , inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=inicteu , note1=
-ld4ctiniuk01.aquis.eu          # env=CT , system=MTF  , site=PRIM, desc=ini server for UK, , inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=inict , note1=
-ld4testini01.aquis.eu          # env=TEST , system=MTF  , site=PRIM, desc=ini server for TEST,  inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=testini , note1=
+# FTP
+ld4prftp01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=ftp server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=ftppr  , note1=
+ln1prftp01.aquis.eu           # env=PROD, system=MTF  , site=DR,   desc=ftp server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=ftpln  , note1=
 
-ld4prlog01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=log server, inst=01, f=   , my_a=     , jb_a=  , note1=
+# CAPTURE LOGS
+ld4prlog01.aquis.eu           # env=PROD, system=MTF  , site=PRIM, desc=log server, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=prlog  , note1=
+ld4prcapuk01.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=capture uk server, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=cap  , note1=
+ld4prcapuk02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=capture uk server, inst=02, f=aquis_server_alias.sh   , my_a=     , jb_a=cap2  , note1=
+ld4prcapeu01.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=capture eu server, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=capeu  , note1=
+ld4prcapeu02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=capture eu server, inst=02, f=aquis_server_alias.sh   , my_a=     , jb_a=capeu2  , note1=
+ln1prcap01.aquis.eu           # env=PROD, system=MTF  , site=DR, desc=capture uk server, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=capln  , note1=CANNOT SSH
+ln1prcap02.aquis.eu           # env=PROD, system=MTF  , site=DR, desc=capture uk server, inst=02, f=aquis_server_alias.sh   , my_a=     , jb_a=capln2 , note1=CANNOT SSH
+
+
+# TO BUCKET
 ld4prmdcap01.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=IDC market data feed in, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=md1  , note1=
 ld4prmdcap02.aquis.eu         # env=PROD, system=MTF  , site=PRIM, desc=IDC market data feed in, inst=02, f=aquis_server_alias.sh   , my_a=     , jb_a=md2  , note1=CANNOT SSH
 
 
+
+
+
+# --------------------------------------------------------------------------------
 # CT
 
 ld4ctarc01.aquis.eu            # env=CT,  system=MTF  , site=PRIM, desc=archive server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=arcct , note1=
 ld4ctftp01.aquis.eu            # env=CT,  system=MTF  , site=PRIM, desc=ftp server for EU/UK??, inst=01, f=aquis_server_alias.sh  , my_a=     , jb_a=ftpct  , note1=
 ld4prmdcap02.aquis.eu          # env=CT , system=MTF , site=PRIM, desc=IDC market data feed in, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=mdct , note1=ssh ld4prmdcap02 -t 'cd /srv/ct; pwd; bash'
+ld4ctinieu01.aquis.eu          # env=CT , system=MTF , site=PRIM, desc=ini server for EU, , inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=inicteu , note1=
+ld4ctiniuk01.aquis.eu          # env=CT , system=MTF  , site=PRIM, desc=ini server for UK, , inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=inict , note1=
+ld4testini01.aquis.eu          # env=TEST , system=MTF  , site=PRIM, desc=ini server for TEST,  inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=testini , note1=
+ld4ctcap01.aquis.eu            # env=CT, system=MTF  , site=PRIM, desc=capture uk server, inst=01, f=aquis_server_alias.sh   , my_a=     , jb_a=capct , note1=
+
 

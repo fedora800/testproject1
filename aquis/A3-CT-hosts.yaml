@@ -24,7 +24,7 @@ windows:
           - sleep 1
           - ssh -t $TP_RHOST 'hostname; bash --rcfile ~/.bashrc_light'
 
-  - window_name: ld4ctcap01
+  - window_name: ld4ctcap01(CAPTURE LOGS)
     panes:
       - shell_command:
           - export TP_RHOST=ld4ctcap01

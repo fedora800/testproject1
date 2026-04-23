@@ -100,3 +100,16 @@ windows:
 #/home/sshinde/todo-aquis_alias.sh:130:alias prXETtrade="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_XET_UK_1G_MMT_mdstream.log |grep mdTrade"
 #/home/sshinde/todo-aquis_alias.sh:131:alias prOTHtrade="ssh -t ld4prmdcap01 tail -f /srv/pr_ramdisk/$(date +%Y-%m-%d)/A_OTH_UK_1G_MMT_mdstream.log |grep mdTrade"
 #
+
+
+  - window_name: check-security-and-tick-files
+    layout: tiled
+    panes:
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ld4prftp01"
+          - exec ssh -t ld4prftp01 'find /srv/ftp/pub/* -newermt ""$(date +%Y-%m-%d)"" -type f | xargs ls -lh; bash --rcfile ~/.bashrc_light'
+      - shell_command:
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "ln1prftp01"
+          - exec ssh -t ln1prftp01 'find /srv/ftp/pub/* -newermt ""$(date +%Y-%m-%d)"" -type f | xargs ls -lh; bash --rcfile ~/.bashrc_light'

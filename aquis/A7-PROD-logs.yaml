@@ -1,0 +1,53 @@
+session_name: A7-PROD-logs
+
+shell_command_before:
+  - export TP_TODAY=$(date +%Y-%m-%d)
+  - export TP_LOG_DIR_1="/srv/logs/mtfeu/pr/"$TP_TODAY
+  - export TP_LOG_DIR_2="/srv"
+  
+windows:
+  - window_name: ld4prlog01 (general?)
+    layout: tiled
+    panes:
+      # alias prlog
+      - shell_command:
+#          - export TP_MDFILE="A_LSE_UK_1G_MMT_mdstream.log"
+          - export TP_RHOST=ld4prlog01
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_RHOST"
+          - exec ssh -t $TP_RHOST "clear; cd $TP_LOG_DIR_1; ls -l; bash"
+          
+
+  - window_name: CAPTURE LOGS
+    layout: tiled
+    panes:
+      # --- _UK ---
+      # alias cap
+      - shell_command:
+          - export TP_RHOST=ld4prcapuk01
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_RHOST"
+          - exec ssh -t $TP_RHOST "clear; cd $TP_LOG_DIR_2; ls -l; bash"
+          
+      # alias cap2
+      - shell_command:
+          - export TP_RHOST=ld4prcapuk02
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_RHOST"
+          - exec ssh -t $TP_RHOST "clear; cd $TP_LOG_DIR_2; ls -l; bash"
+
+      # --- _EU ---
+      # alias capeu
+      - shell_command:
+          - export TP_RHOST=ld4prcapeu01
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_RHOST"
+          - exec ssh -t $TP_RHOST "clear; cd $TP_LOG_DIR_2; ls -l; bash"
+
+      # alias capeu2
+      - shell_command:
+          - export TP_RHOST=ld4prcapeu02
+          - sleep 0.3
+          - tmux select-pane -t "$TMUX_PANE" -T "$TP_RHOST"
+          - exec ssh -t $TP_RHOST "clear; cd $TP_LOG_DIR_2; ls -l; bash"
+

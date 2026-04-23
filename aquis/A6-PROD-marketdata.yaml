@@ -50,7 +50,7 @@ windows:
       - shell_command:
           - sleep 0.3
           - tmux select-pane -t "$TMUX_PANE" -T "$TP_HOST_MD_PR_01"
-          - exec ssh -t $TP_HOST_MD_PR_01 'hostname; bash --rcfile ~/.bashrc_light'
+          - exec ssh -t $TP_HOST_MD_PR_01 "clear; echo \"just a bash shell on $TP_HOST_MD_PR_01 for support\"; echo; bash --rcfile ~/.bashrc_light"
 
 
 
